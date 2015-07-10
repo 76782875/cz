@@ -1,0 +1,26 @@
+---
+name: Top article function
+code: remoteimageupload
+type: extension
+copyright: AG
+site: http://www.shenduncn.com/
+author: 'AG<114966237@qq.com>'
+abstract: Top article function
+desc: Top article function
+install: |
+  1. Install through the buildin extension manager.
+    1.1 Login to chanzhi system as administrator, visit the admin->extension
+    1.2 Go to the obtain page, search to find the plug-in.
+    1.3 Click the AutoInstall and begin the installation.
+  2. Manual install. Unzip this package and copy files under module directory to the chanzhi/module.
+releases:
+  1.2:
+    chanzhi:
+      compatible: all
+      incompatible:
+    charge: free
+    date: 2015-1-27
+    conflicts: null
+    depends: null
+    license: ZPL (http://zpl.pub/v1)
+    changelog: Fist release.

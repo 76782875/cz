@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - cz@localhost" uuid="7b76dc6e-e2d8-492e-9d85-803fa7d73bba">
+    <database-info product="MySQL" version="5.5.39" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="cz"/>
+    <table name="cz_address" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="contact" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="zipcode" sqlType="CHAR" precision="6" scale="0" nullable="false" jdbcType="1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="account" unique="false" columns="account"/>
+    </table>
+    <table name="cz_annex" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="locked" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="cz_annexgroup" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="groupname" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="annexid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="cz_article" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="isTop" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="title" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="keywords" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="summary" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="source" sqlType="ENUM" precision="13" scale="0" nullable="false" jdbcType="1"/>
+      <column name="copySite" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="copyURL" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="author" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="editor" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J25vcm1hbCc="/>
+      <column name="type" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="views" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="sticky" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="order" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="link" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="css" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="js" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="order" unique="false" columns="order"/>
+      <index name="sticky" unique="false" columns="sticky"/>
+      <index name="views" unique="false" columns="views"/>
+    </table>
+    <table name="cz_block" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="template" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="J2RlZmF1bHQn"/>
+      <column name="type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_book" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="keywords" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="summary" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="type" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1"/>
+      <column name="parent" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="path" sqlType="CHAR" precision="255" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grade" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="author" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="editor" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="views" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="order" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="order" unique="false" columns="order"/>
+      <index name="parent" unique="false" columns="parent"/>
+      <index name="path" unique="false" columns="path"/>
+    </table>
+    <table name="cz_cart" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="product" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="count" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="account" unique="false" columns="account"/>
+    </table>
+    <table name="cz_category" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="alias" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="desc" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="keywords" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="parent" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="path" sqlType="CHAR" precision="255" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grade" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="order" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="type" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="readonly" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="moderators" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="threads" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="posts" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="postedBy" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="postID" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
+      <column name="replyID" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4"/>
+      <column name="link" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="order" unique="false" columns="order"/>
+      <index name="parent" unique="false" columns="parent"/>
+      <index name="path" unique="false" columns="path"/>
+      <index name="tree" unique="false" columns="type"/>
+    </table>
+    <table name="cz_config" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="owner" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="module" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="section" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="key" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="value" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique" unique="true" columns="owner,module,section,key,lang"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_down" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="file" sqlType="MEDIUMINT" precision="7" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ip" sqlType="CHAR" precision="15" scale="0" nullable="false" jdbcType="1"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="referer" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="fileID" unique="false" columns="file"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_file" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pathname" sqlType="CHAR" precision="50" scale="0" nullable="false" jdbcType="1"/>
+      <column name="title" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1"/>
+      <column name="extension" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="size" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="width" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="height" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="objectType" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="objectID" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
+      <column name="addedBy" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="public" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzEn"/>
+      <column name="downloads" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="extra" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="primary" sqlType="ENUM" precision="2" scale="0" nullable="true" jdbcType="1" def="JzAn"/>
+      <column name="editor" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="object" unique="false" columns="objectType,objectID"/>
+    </table>
+    <table name="cz_group" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="role" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="desc" sqlType="CHAR" precision="255" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cz_grouppriv" schema="" catalog="cz" type="TABLE">
+      <column name="group" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="module" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="method" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <index name="group" unique="true" columns="group,module,method"/>
+    </table>
+    <table name="cz_layout" schema="" catalog="cz" type="TABLE">
+      <column name="template" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="J2RlZmF1bHQn"/>
+      <column name="page" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="region" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="blocks" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <index name="layout" unique="true" columns="template,page,region,lang"/>
+    </table>
+    <table name="cz_log" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="browser" sqlType="CHAR" precision="100" scale="0" nullable="false" jdbcType="1"/>
+      <column name="fingerprint" sqlType="CHAR" precision="100" scale="0" nullable="false" jdbcType="1"/>
+      <column name="ip" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="position" sqlType="CHAR" precision="100" scale="0" nullable="false" jdbcType="1"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="desc" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="ext" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="type" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="J2FkbWlubG9naW4n"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="J2FsbCc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cz_message" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="type" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="objectType" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="objectID" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="from" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="to" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="phone" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="email" sqlType="VARCHAR" precision="90" scale="0" nullable="false" jdbcType="12"/>
+      <column name="qq" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="link" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="public" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzEn"/>
+      <column name="readed" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="receiveEmail" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="object" unique="false" columns="objectType,objectID"/>
+      <index name="status" unique="false" columns="status"/>
+    </table>
+    <table name="cz_oauth" schema="" catalog="cz" type="TABLE">
+      <column name="account" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="provider" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="openID" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <index name="account" unique="true" columns="account,provider,openID"/>
+    </table>
+    <table name="cz_order" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="amount" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="payment" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="sn" sqlType="CHAR" precision="50" scale="0" nullable="false" jdbcType="1"/>
+      <column name="address" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="note" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="createdDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="paidDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="payStatus" sqlType="ENUM" precision="9" scale="0" nullable="false" jdbcType="1" def="J25vdF9wYWlkJw=="/>
+      <column name="deliveriedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="deliveriedBy" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="deliveryStatus" sqlType="ENUM" precision="9" scale="0" nullable="false" jdbcType="1" def="J25vdF9zZW5kJw=="/>
+      <column name="express" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="waybill" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="confirmedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="finishedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="finishedBy" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="status" sqlType="ENUM" precision="8" scale="0" nullable="false" jdbcType="1" def="J25vcm1hbCc="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="account" unique="false" columns="account"/>
+      <index name="createdDate" unique="false" columns="createdDate"/>
+      <index name="deliveriedDate" unique="false" columns="deliveriedDate"/>
+      <index name="status" unique="false" columns="status"/>
+    </table>
+    <table name="cz_orderproduct" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="orderID" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="productID" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="productName" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="count" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="orderID" unique="false" columns="orderID"/>
+      <index name="productID" unique="false" columns="productID"/>
+    </table>
+    <table name="cz_package" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="version" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="author" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="desc" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="license" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J2V4dGVuc2lvbic="/>
+      <column name="site" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="chanzhiCompatible" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="templateCompatible" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="installedTime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="depends" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dirs" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="files" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="code" unique="true" columns="code"/>
+      <index name="addedTime" unique="false" columns="installedTime"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="name" unique="false" columns="name"/>
+    </table>
+    <table name="cz_product" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mall" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="brand" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="model" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="color" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="origin" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="unit" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="price" sqlType="FLOAT" precision="8" scale="2" nullable="false" jdbcType="7"/>
+      <column name="promotion" sqlType="FLOAT" precision="8" scale="2" nullable="false" jdbcType="7"/>
+      <column name="amount" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="true" jdbcType="4"/>
+      <column name="keywords" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="desc" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="author" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="editor" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J25vcm1hbCc="/>
+      <column name="views" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="sticky" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="order" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="css" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="js" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="model" unique="false" columns="model"/>
+      <index name="order" unique="false" columns="order"/>
+      <index name="sticky" unique="false" columns="sticky"/>
+      <index name="views" unique="false" columns="views"/>
+    </table>
+    <table name="cz_product_custom" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="product" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="value" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="order" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="label" unique="true" columns="product,label"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="product" unique="false" columns="product"/>
+    </table>
+    <table name="cz_relation" schema="" catalog="cz" type="TABLE">
+      <column name="type" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="id" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
+      <column name="category" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <index name="relation" unique="true" columns="type,id,category"/>
+    </table>
+    <table name="cz_reply" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="thread" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="author" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="editor" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="hidden" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="author" unique="false" columns="author"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="thread" unique="false" columns="thread"/>
+    </table>
+    <table name="cz_search_dict" schema="" catalog="cz" type="TABLE">
+      <column name="key" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="value" sqlType="CHAR" precision="3" scale="0" nullable="false" jdbcType="1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="key"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_search_index" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="objectType" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1"/>
+      <column name="objectID" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="params" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="status" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="J25vcm1hbCc="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="object" unique="true" columns="objectType,objectID"/>
+      <index name="addedDate" unique="false" columns="addedDate"/>
+      <index name="content" unique="false" columns="title,content"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_tag" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="tag" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="link" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rank" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+      <index name="link" unique="false" columns="link"/>
+      <index name="rank" unique="false" columns="rank"/>
+      <index name="tag" unique="false" columns="tag"/>
+    </table>
+    <table name="cz_thread" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="board" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="color" sqlType="CHAR" precision="10" scale="0" nullable="false" jdbcType="1"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="author" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="editor" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="editedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="readonly" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="views" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="stick" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="replies" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="repliedBy" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="repliedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="replyID" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4"/>
+      <column name="hidden" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="link" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="category" unique="false" columns="board"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_user" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="password" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="realname" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="realnames" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nickname" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="admin" sqlType="ENUM" precision="6" scale="0" nullable="false" jdbcType="1" def="J25vJw=="/>
+      <column name="avatar" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="gender" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="J3Un"/>
+      <column name="email" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="skype" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1"/>
+      <column name="qq" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="yahoo" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="gtalk" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="wangwang" sqlType="CHAR" precision="90" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="site" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mobile" sqlType="CHAR" precision="11" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="phone" sqlType="CHAR" precision="20" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="company" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="CHAR" precision="120" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="zipcode" sqlType="CHAR" precision="10" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="visits" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="ip" sqlType="CHAR" precision="15" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="last" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="fails" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="referer" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="join" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="reset" sqlType="CHAR" precision="64" scale="0" nullable="false" jdbcType="1"/>
+      <column name="locked" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="public" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="account" unique="false" columns="account,password"/>
+      <index name="admin" unique="false" columns="admin"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_userannex" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="userid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="annexid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="cz_usergroup" schema="" catalog="cz" type="TABLE">
+      <column name="account" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="group" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <index name="account" unique="true" columns="account,group"/>
+    </table>
+    <table name="cz_wx_message" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="public" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="wid" sqlType="CHAR" precision="64" scale="0" nullable="false" jdbcType="1"/>
+      <column name="to" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="from" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="response" sqlType="MEDIUMINT UNSIGNED" precision="8" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="type" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="replied" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_wx_public" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="account" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="appID" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <column name="appSecret" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="qrcode" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="primary" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="type" sqlType="ENUM" precision="10" scale="0" nullable="false" jdbcType="1"/>
+      <column name="status" sqlType="ENUM" precision="6" scale="0" nullable="false" jdbcType="1"/>
+      <column name="certified" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1" def="JzAn"/>
+      <column name="addedDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+    <table name="cz_wx_response" schema="" catalog="cz" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" autoIncrement="true"/>
+      <column name="public" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="key" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="group" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="ENUM" precision="5" scale="0" nullable="false" jdbcType="1" def="J3RleHQn"/>
+      <column name="source" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lang" sqlType="CHAR" precision="30" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="key" unique="true" columns="public,key,lang"/>
+      <index name="lang" unique="false" columns="lang"/>
+    </table>
+  </data-source>
+</component>

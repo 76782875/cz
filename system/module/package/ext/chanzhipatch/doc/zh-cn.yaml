@@ -1,0 +1,27 @@
+---
+name: 蝉知4.2.1补丁
+code: chanzhipatch
+type: patch
+copyright: >
+  青岛易软天创网络科技有限公司
+  2015
+site: http://www.chanzhi.org
+author: 'guanxiying<guanxiying@xirangit.com>'
+abstract: 蝉知4.2.1 补丁
+desc: >
+  蝉知4.2.1
+  补丁，修复论坛帖子默认颜色，域名检查不支持端口号bug
+install:
+releases:
+  4.2.1.1:
+    chanzhi:
+      compatible: all
+      incompatible:
+    charge: free
+    license: LGPL
+    changelog: |
+      修复域名检查不支持带端口号的bug
+      论坛默认颜色不用白色
+    date: 2015-05-18
+    depends: null
+    conflicts: null
